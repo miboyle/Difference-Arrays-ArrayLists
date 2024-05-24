@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>DiscussionThree.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+.s6 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DiscussionThree.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Arrays</span><span class="s2">;</span>
+
+<span class="s3">/**This code demonstrates the conceptual differences</span>
+ <span class="s3">* between the objects that are arrays and array lists</span>
+ <span class="s3">* via different use cases</span>
+ <span class="s3">*/</span>
+
+<span class="s0">public class </span><span class="s1">DiscussionThree </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s4">//PART ONE</span>
+        <span class="s4">//Code of creating an array that's too small for a set of data</span>
+        <span class="s0">double</span><span class="s2">[] </span><span class="s1">array </span><span class="s2">= </span><span class="s0">new double</span><span class="s2">[</span><span class="s5">3</span><span class="s2">];</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">array</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s1">array</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">i</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s6">&quot;ADDING TO AN ARRAY VS ARRAY LIST&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Initial Array: &quot; </span><span class="s2">+ </span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">array</span><span class="s2">));</span>
+
+        <span class="s4">//if I just try to assign to a length greater than the size it doesn't work as the error code is displayed when run</span>
+        <span class="s0">try</span><span class="s2">{</span>
+            <span class="s1">array</span><span class="s2">[</span><span class="s5">3</span><span class="s2">] = </span><span class="s5">3.0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">catch</span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Error: Couldn't add 3 to a fourth sot in the array&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s4">//Process of adding one more element to array</span>
+        <span class="s0">double</span><span class="s2">[] </span><span class="s1">array2 </span><span class="s2">= </span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">copyOf</span><span class="s2">(</span><span class="s1">array</span><span class="s2">, </span><span class="s1">array</span><span class="s2">.</span><span class="s1">length </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">); </span><span class="s4">//Creates a copy of previous array</span>
+        <span class="s1">array2</span><span class="s2">[</span><span class="s5">3</span><span class="s2">] = </span><span class="s5">3.0</span><span class="s2">;</span><span class="s4">//SETS new spot to desired variable</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Expanded Array: &quot; </span><span class="s2">+ </span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">array2</span><span class="s2">)); </span><span class="s4">//Now my goal works</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+
+
+        <span class="s4">//Now we will compare this to creating a list and adding a variable</span>
+        <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Double</span><span class="s2">&gt; </span><span class="s1">list </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Double</span><span class="s2">&gt;();</span>
+        <span class="s1">list</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s5">0.0</span><span class="s2">);</span>
+        <span class="s1">list</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s5">1.0</span><span class="s2">);</span>
+        <span class="s1">list</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s5">2.0</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Initial List: &quot; </span><span class="s2">+ </span><span class="s1">list</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">());</span>
+
+        <span class="s4">//Process of adding one more element to list</span>
+        <span class="s1">list</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s5">3.0</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s6">&quot;Expanded List: &quot; </span><span class="s2">+ </span><span class="s1">list</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">());</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+
+        <span class="s4">//As one can see above, adding to a list not only takes on instead of two lines of code,</span>
+        <span class="s4">//but is far easier to read as &quot;add(NEW_VALUE) is a lot more intuitive than array2[position] = NEW_VALUE</span>
+
+        <span class="s4">//PART TWO</span>
+
+        <span class="s4">//Now let's see the difference between the process of displaying a table chart</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;DISPLAYING A TABLE CHART WITH AN ARRAY AND LIST&quot;</span><span class="s2">);</span>
+
+        <span class="s4">//ARRAY MULTIPLICATION TABLE Initialtization</span>
+        <span class="s0">int</span><span class="s2">[][] </span><span class="s1">arrayTable </span><span class="s2">= </span><span class="s0">new int</span><span class="s2">[</span><span class="s5">3</span><span class="s2">][</span><span class="s5">3</span><span class="s2">];</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;INITIAL ARRAY TABLE&quot;</span><span class="s2">);</span>
+
+        <span class="s4">//This code creates and displays the initial table.</span>
+        <span class="s4">//With a nested for loop and the [][] coordinates it makes it as intuitive as possible to chart out a table</span>
+        <span class="s4">//And the corresponding numbers</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">arrayTable</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s1">arrayTable</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">length</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++){</span>
+                <span class="s1">arrayTable</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">] = </span><span class="s1">i </span><span class="s2">+ </span><span class="s1">j</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">arrayTable</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">] + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;CHANGED ARRAY TABLE&quot;</span><span class="s2">);</span>
+
+        <span class="s1">arrayTable</span><span class="s2">[</span><span class="s5">1</span><span class="s2">][</span><span class="s5">1</span><span class="s2">] =  </span><span class="s5">9</span><span class="s2">;</span><span class="s4">//Here is the way to change a specific element in the array table</span>
+                                <span class="s4">//While it isn't as nice as typing &quot;add()&quot; one can easily see</span>
+                                <span class="s4">//where the coordinate and the new element will be</span>
+
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">arrayTable</span><span class="s2">.</span><span class="s1">length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s1">arrayTable</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">length</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++){</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">arrayTable</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">] + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s2">}</span>
+
+        <span class="s4">//DISPLAYING TABLE WITH A LIST</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;INITIAL LIST TABLE&quot;</span><span class="s2">);</span>
+
+        <span class="s4">//The only way to do so with lists is to create a new list for each row or column and loop through each one</span>
+        <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">listRow1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">listRow2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">listRow3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">listRow1</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">i</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow1</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">listRow2</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">i</span><span class="s2">+</span><span class="s5">1</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow2</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">listRow3</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">i</span><span class="s2">+</span><span class="s5">2</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow3</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;CHANGED LIST TABLE&quot;</span><span class="s2">);</span>
+
+        <span class="s1">listRow2</span><span class="s2">.</span><span class="s1">set</span><span class="s2">(</span><span class="s5">1</span><span class="s2">, </span><span class="s5">9</span><span class="s2">);</span><span class="s4">//This is where I change an element in a list. As one can see, not having the &quot;[][]&quot; form</span>
+                            <span class="s4">//makes it less easy to understand where the element is changing and even</span>
+                            <span class="s4">//which the new element is going to be compared to &quot;= NEW ELEMENT &quot;</span>
+
+
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow1</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow2</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+        <span class="s0">for</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">3</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">listRow3</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) + </span><span class="s6">&quot; &quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s4">//THE OUTPUTS DISPLAYED ON THE TERMINAL WILL SHOW THAT DESPITE THE SAME RESULTS, EACH HAS THEIR OWN CASES</span>
+        <span class="s4">//IN WHICH A PROGRAMMER WILL BENEFIT MORE FROM A SPECIFIC OPTION</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
